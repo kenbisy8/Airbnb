@@ -1,0 +1,104 @@
+.footer-container{
+  width: 100%;
+  padding-top: 100px;
+  height: 300px;
+  clear: both;
+  box-sizing: border-box;
+  position: relative;
+  .footer {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    border-top: 1px solid #e4e4e4;
+      &__contents {
+        height: 240px;
+        margin: 50px 50px;
+        border-bottom: 1px solid #e4e4e4;
+          &__lng {
+            width: 227px;
+            float: left;
+            &-lng {
+              width: 227px;
+              margin-bottom: 10px;
+              overflow: hidden;
+              border: 1px solid #e4e4e4;
+              border-radius: 1.5px;
+              background: url(arrow.jpg) right 10px center no-repeat;
+                &-select {
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                  width: 227px;
+                  height: 46px;
+                  margin: 0;
+                  border: 0;
+                  outline: none;
+                  padding: 7px;
+                  background: transparent;
+                  font-size: 20px;
+                  font-weight: 200;
+                  color: #484848;
+                  line-height: 23px;
+                }
+            }
+          }
+
+          &__info {
+            width: 146px;
+            margin-left: 81px;
+            float: left;
+            &__box {
+              word-wrap: break-word;
+              h3 {
+               font-size: 13px;
+               font-weight: 700;
+               color: #484848;
+               line-height: 18px;
+               letter-spacing: 0.2px;
+               margin-bottom: 16px;
+              }
+              a {
+                text-decoration: none;
+                color: #767676;
+                font-size: 16px;
+                font-weight: 200;
+              }
+              li:hover{
+                border-bottom:1px solid #e4e4e4;
+              }
+            }
+          }
+      }
+  }
+}
+.copy-rights {
+  height: 80px;
+  margin: 12px 50px 0;
+  #footer__logo-airbnb {
+    width: 25px;
+    height: 25px;
+    float: left;
+  }
+  p {
+    float: left;
+    font-size: 14px;
+    color: #767676;
+    margin: 3px 0 0 5px;
+  }
+  a {
+    text-decoration: none;
+    ul {
+      li {
+        float: right;
+        color: #767676;
+        margin-left: 11px;
+      }
+      .fa {
+        margin: 3px 0 0 12px;
+      }
+      li:hover{
+        border-bottom:1px solid #e4e4e4;
+      }
+    }
+  }
+}
