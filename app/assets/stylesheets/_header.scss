@@ -1,0 +1,79 @@
+#all-contents{
+  box-sizing: border-box;
+  width: 1470px;
+  height: 100vh;
+  min-width: 600px;
+
+  .header-container {
+    padding-bottom: 40px;
+    .header {
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 800px;
+      height: 80px;
+      padding-top: 20px;
+      position: fixed;
+      background-color: #fff;
+      border-bottom: 1px solid #e4e4e4;
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+
+          &__logo{
+              &-airbnb {
+                width: 40px;
+                height: 40px;
+                padding-top: 2px;
+                padding-left: 15px;
+                float: left;
+              }
+          }
+
+          &__search{
+            float: left;
+                &__form {
+                  margin-left: 20px;
+                  .inputs {
+                    height: 40px;
+                    width: 150px;
+                    font-family: FontAwesome;
+                    padding: 0 10px;
+                    text-align:left;
+                    -webkit-border-radius: 1px;
+                    -moz-border-radius: 1px;
+                    border-radius: 5px;
+                    border: 1px solid #D3D3D3;
+                    color: #484848;
+                    font-size: 15px;
+                  }
+                }
+          }
+
+          &__user {
+            float: right;
+              &-icon {
+                margin-right: 20px;
+                padding: 10px 0;
+                width: 30px;
+                height: 30px;
+              }
+              &-icon:hover {
+                border-bottom:2px solid #008489;
+              }
+          }
+
+          &__host {
+            float: right;
+            margin-top: 10px;
+            margin-right: 25px;
+              &-text {
+                text-decoration: none;
+                padding-bottom: 10px;
+                font-size: 13px;
+                color: #484848;
+              }
+              &-text:hover {
+                border-bottom:2px solid #008489;
+              }
+          }
+    }
+  }
+}
