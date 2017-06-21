@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620083454) do
+ActiveRecord::Schema.define(version: 20170621113035) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "persons"
@@ -22,13 +22,16 @@ ActiveRecord::Schema.define(version: 20170620083454) do
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "room_name",                null: false
-    t.text     "adress",     limit: 65535, null: false
-    t.integer  "guest",                    null: false
-    t.integer  "price",                    null: false
-    t.string   "room_type",                null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "room_name",  null: false
+    t.integer  "guest",      null: false
+    t.integer  "price",      null: false
+    t.string   "room_type",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "country"
+    t.string   "prefecture"
+    t.string   "city"
+    t.string   "address"
   end
 
 end
