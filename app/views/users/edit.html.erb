@@ -1,0 +1,36 @@
+<%= render 'rooms/header' -%>
+
+<div class="edit__contents">
+  <div class="edit__contents__side">
+    <ul class="edit__contents__side__list">
+      <li><%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'lists-titles' %></li>
+      <li class="lists-titles">リスティングを編集</li>
+      <li class="lists-titles">予約を確認</li>
+    </ul>
+  </div>
+
+  <div class="edit__contents__user">
+    <div class="edit__contents__user__bar">
+      <p class="edit__contents__user__bar-title">プロフィールを編集</p>
+    </div>
+    <div class="edit__contents__user__form">
+      <%= form_for(current_user, url: user_path) do |f| %>
+        <div class='edit__contents__user__form-lists'>
+          <%= f.text_field :name, placeholder: '名前', class: 'edit__contents__user__form-lists-field' %>
+          <h3 class="edit__contents__user__form-lists-title">名前</h3>
+        </div>
+
+        <div class='edit__contents__user__form-lists'>
+          <%= f.email_field :email, placeholder: 'メールアドレス', autofocus: true, class: 'edit__contents__user__form-lists-field' %>
+          <h3 class="edit__contents__user__form-lists-title">メールアドレス</h3>
+        </div>
+
+        <div>
+          <%= f.submit "保存する", id: 'edit-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'rooms/footer/footer' -%>
