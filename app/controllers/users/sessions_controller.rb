@@ -9,10 +9,10 @@ class Users::SessionsController < Devise::SessionsController
     else
       respond_to do |format|
         if params[:password].blank?
-          @errors << 'パスワードを確認してください'
+          @errors << 'パスワードを確認してください。'
         end
         if params[:email].blank?
-          @errors << 'メールアドレスを確認してください'
+          @errors << 'メールアドレスを確認してください。'
         end
         format.json
       end

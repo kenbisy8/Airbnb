@@ -1,37 +1,129 @@
 #modal__contents{
   &-signup{
-  z-index: 4;
-  display: none;
-  position: fixed;
-  width:50%;
-  margin: 0 auto;
-  border: 2px solid #aaa;
-  background-color: #fff;
-  text-align: center;
+    z-index: 4;
+    display: none;
+    position: fixed;
+    width: 570px;
+    margin: 0 auto;
+    background-color: #fff;
+    text-align: center;
   }
+
   &-signin{
-  z-index: 4;
-  display: none;
-  position: fixed;
-  width:50%;
-  margin: 0 auto;
-  border: 2px solid #aaa;
-  background-color: #fff;
-  text-align: center;
+    z-index: 4;
+    display: none;
+    position: fixed;
+    width: 570px;
+    margin: 0 auto;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .modal-close {
+    height: 20px;
+    &-icon {
+      margin: 20px 0 0 20px;
+      width: 16px;
+      height: 16px;
+      float: left;
+    }
+  }
+
+  #login-title {
+    margin-left: 42px;
+    padding: 16px 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #484848;
+    text-align: left;
+  }
+
+  .login__fg {
+    font-size: 14px;
+    color: #484848;
+    margin: 16px 42px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #D3D3D3;
+    &-text {
+      margin-top: 16px;
+      text-decoration: none;
+      color: #008489;
+      cursor: pointer;
+    }
+    &-text:hover {
+      border-bottom: 1px solid #008489;
+    }
+  }
+
+  .modal__sign__form {
+    width: 80%;
+    margin: 10px 32px;
+    padding: 12px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 3px;
+    border: 1px solid #D3D3D3;
+    color: #484848;
+    font-size: 18px;
+    &-check {
+      float: left;
+      margin-top: 19px;
+      margin-left: 42px;
+      &-label {
+        float: left;
+        margin: 11px 0 0 8px;
+        font-size: 20px;
+        color: #484848;
+      }
+    }
+  }
+
+  .modal__sign__form:focus {
+    border: 1px solid #008489;
+    outline: 0;
+  }
+
+  .modal__login {
+    border-bottom: 1px solid #D3D3D3;
+    margin: 0 42px;
+    &-btn {
+      width: 100%;
+      margin: 32px 0;
+      border: 1px solid #ff5a5f;
+      border-radius: 3px;
+      background-color: #ff5a5f;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      line-height: 45px;
+    }
+  }
+
+  .modal__switch {
+    float: left;
+    margin: 40px;
+    color: #484848;
+    font-size: 18px;
+    &-btn {
+      position: absolute;
+      right: 40px;
+      bottom: 40px;
+      padding: 3px 10px;
+      font-size: 16px;
+      color: #008489;
+      border: 2px solid #008489;
+      border-radius: 3px;
+      cursor: pointer;
+    }
   }
 }
-// .modal-content {
-//   z-index: 4;
-//   display: none;
-//   position: fixed;
-//   width:50%;
-//   margin: 0 auto;
-//   border: 2px solid #aaa;
-//   background-color: #fff;
-//   text-align: center;
-// }
 
-#modal-overlay{
+.error-messages {
+  color: #d93900;
+  font-size: 18px;
+}
+
+#modal-overlay {
   z-index: 3;
   display: none;
   position: fixed;

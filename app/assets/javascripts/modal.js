@@ -1,8 +1,8 @@
 $(function(){
   var $content_signup = $('#modal__contents-signup');
-  var $signup = $('#modal_signup');
+  var $signup = $('.modal__signup');
   var $content_signin = $('#modal__contents-signin');
-  var $signin = $('#modal_signin');
+  var $signin = $('#modal__signin');
   var $overlay = $("#modal-overlay");
 
   function centeringModal(modal){
@@ -61,12 +61,13 @@ $(function(){
         location.reload(true);
       } else {
         $("#user_password").add("#user_password_confirmation").val("");
-        $(".create_user").prop("disabled", false);
+        $(".modal__login-btn").prop("disabled", false);
         errorMessages(data, $signup)
       };
     })
     .fail(function(data){
       alert('error');
+      $(".modal__login-btn").prop("disabled", false);
     });
   });
 
@@ -102,13 +103,13 @@ $(function(){
         location.reload(true);
       } else {
         $("#user_password").add("#user_password_confirmation").val("");
-        $(".create_user").prop("disabled", false);
+        $(".modal__login-btn").prop("disabled", false);
         errorMessages(data, $signin)
       };
     })
     .fail(function(data){
       alert('error');
-      $(".create_user").prop("disabled", false);
+      $(".modal__login-btn").prop("disabled", false);
     });
   });
 });
