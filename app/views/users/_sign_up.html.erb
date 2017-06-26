@@ -1,0 +1,39 @@
+<div id="modal__contents">
+  <div id="modal__contents-signup">
+    <div class="modal-close">
+      <%= image_tag 'close.jpg', class: 'modal-close-icon' %>
+    </div><br>
+    <div class="login__fg">
+      <a href="#" class="login__fg-text">Facebook</a>
+        <span>または</span>
+      <a href="#" class="login__fg-text">Google</a>
+        <span>で登録</span>
+    </div>
+
+    <%= form_for(@user, url: user_registration_path, format: 'json', html: {class: 'modal__signup'} ) do |f| %>
+      <div>
+        <%= f.text_field :name, placeholder: '名前', class: "modal__sign__form" %>
+      </div>
+
+      <div>
+        <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: "modal__sign__form" %>
+      </div>
+
+      <div>
+        <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: 'パスワードを作成', class: "modal__sign__form"  %>
+      </div>
+
+      <div>
+        <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: 'パスワードを作成（確認）', class: "modal__sign__form"  %>
+      </div>
+
+      <div class="modal__login">
+        <%= f.submit '登録', class: 'modal__login-btn' %>
+      </div>
+    <% end %>
+    <div class="modal__switch">Airbnbアカウントをお持ちですか？
+        <div class="modal__switch-btn modal__open-signin">ログイン</div>
+    </div>
+  </div>
+</div>
