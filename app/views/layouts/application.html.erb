@@ -9,9 +9,11 @@
   </head>
 
   <body>
+  <div id="all-contents">
     <%= yield %>
     <%= render 'users/sign_up', user: @user %>
     <%= render 'users/sign_in', user: @user %>
+  </div>
     <div id="modal-overlay"></div>
   </body>
 </html>
