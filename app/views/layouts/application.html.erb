@@ -10,5 +10,8 @@
 
   <body>
     <%= yield %>
+    <%= render 'users/sign_up', user: @user %>
+    <%= render 'users/sign_in', user: @user %>
+    <div id="modal-overlay"></div>
   </body>
 </html>
