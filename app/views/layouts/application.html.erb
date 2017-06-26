@@ -4,11 +4,16 @@
     <title>Airbnb</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+  <div id="all-contents">
     <%= yield %>
+    <%= render 'users/sign_up', user: @user %>
+    <%= render 'users/sign_in', user: @user %>
+  </div>
+    <div id="modal-overlay"></div>
   </body>
 </html>

@@ -13,14 +13,38 @@
           </form>
         </div>
       </div>
-      <div class="header__user">
-        <a href="/">
+
+      <% if user_signed_in? %>
+        <div class="header__user" >
           <%= image_tag 'user_icon.png', class: 'header__user-icon' %>
-        </a>
-      </div>
+          <div class="header__user__box" id="account-box">
+            <ul>
+              <li class="header__user__box-li">
+              <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'header__user__box-tag' %>
+              </li>
+              <li class="header__user__box-li">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header__user__box-tag' %></li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <div class="modal__open-signin">
+          <div class="header__user" >
+            <div class="header__user-text">ログイン</div>
+          </div>
+        </div>
+        <div class="modal__open-signup">
+          <div class="header__user" >
+            <div class="header__user-account">アカウント作成</div>
+          </div>
+        </div>
+      <% end %>
+
       <div class="header__host">
         <%= link_to "ホストになる", "/rooms/new", class: "header__host-text" %>
       </div>
     </div>
   </div>
 </header>
+
+
