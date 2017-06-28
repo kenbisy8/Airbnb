@@ -64,3 +64,5 @@ end
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'devise-i18n-views'
+gem 'country_select'
+gem 'ionicons-rails'
