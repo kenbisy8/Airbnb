@@ -12,6 +12,7 @@ module Airbnb
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ja
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| %Q(#{html_tag}).html_safe }
     config.generators do |g|
       g.assets     false
       g.helper     false
