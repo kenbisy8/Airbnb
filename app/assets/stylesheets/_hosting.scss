@@ -1,5 +1,31 @@
+#error_explanation {
+  margin: 20px 0;
+  padding: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+
+  h2 {
+    margin-bottom: 10px;
+    color: #ff5a5f;
+    font-size: 32px;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: square;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+  }
+}
+
 .hosting {
   width: 100%;
+  box-sizing: border-box;
   &__contents {
     &__image {
       position: relative;
@@ -58,7 +84,8 @@
           color: #ff5a5f;
           margin-top: 120px;
         }
-        h3 {
+        .hosting-titles {
+          display: block;
           padding-top: 120px;
           margin-bottom: 50px;
           border-top: 1px solid #e4e4e4;
@@ -75,12 +102,24 @@
             border-radius: 4px;
             padding-left: 15px;
           }
+          .hosting-inputs:focus {
+            border: 1px solid #008489;
+            outline: 0;
+          }
         }
 
-        &--adress {
+        &--address {
           h4 {
             font-size: 20px;
             margin-top: 50px;
+          }
+          #hosting-country {
+            max-width: 517px;
+            color: #484848;
+            background-color: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
           }
           .hosting-inputs {
             font-size: 20px;
@@ -91,13 +130,31 @@
             border-radius: 4px;
             padding-left: 15px;
           }
+          .hosting-inputs:focus {
+            border: 1px solid #008489;
+            outline: 0;
+          }
         }
 
         &--room_type {
+          .hosting-titles {
+            font-size: 40px;
+          }
           label {
             font-size: 30px;
-            .room_type-inputs {
-              margin: 0 10px 0 50px;
+            margin-left: 30px;
+            .room_types-inputs {
+              display: none;
+            }
+            .room_types-inputs + .room_types-btn:before {
+              content: "\f3a6";
+              font-family: "Ionicons";
+              color: #D3D3D3;
+              font-size: 22px;
+            }
+            .room_types-inputs:checked + .room_types-btn:before {
+              content: "\f3a7";
+              color: #008489;
             }
           }
         }
@@ -111,9 +168,18 @@
             border: 1px solid #D3D3D3;
             border-radius: 4px;
             padding-left: 15px;
-          }
+            &:focus {
+              border: 1px solid #008489;
+              outline: 0;
+            }
           span {
             font-size: 30px;
+            }
+          }
+          input[type="number"]::-webkit-outer-spin-button,
+          input[type="number"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
           }
         }
 
@@ -127,16 +193,43 @@
               border-radius: 4px;
               padding-left: 15px;
             }
+            .hosting-inputs:focus {
+              border: 1px solid #008489;
+              outline: 0;
+            }
           span {
             font-size: 30px;
+            }
           }
+
+          &--image {
+            .custom-image-btn {
+              display: inline-block;
+              position: relative;
+              padding: 20px 100px;
+              font-size: 20px;
+              text-align: center;
+              color: #fff;
+              border-radius: 4px;
+              background-color: #ff5a5f;
+              overflow: hidden;
+            }
+            .hosting-images {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              opacity: 0;
+              cursor: pointer;
+            }
           }
 
           &--submit {
-            margin-top: 200px;
-            input {
-              width: 275px;
-              height: 45px;
+            margin-top: 300px;
+          }
+            #hosting-registration-btn {
+              padding: 10px 100px;
               border: 1px solid #ff5a5f;
               border-radius: 5px;
               background-color: #ff5a5f;
@@ -144,8 +237,7 @@
               color: #fff;
               text-align: center;
               line-height: 45px;
-           }
-          }
+            }
       }
     }
   }
