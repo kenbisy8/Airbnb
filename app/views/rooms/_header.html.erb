@@ -41,7 +41,15 @@
       <% end %>
 
       <div class="header__host">
-        <%= link_to "ホストになる", "/rooms/new", class: "header__host-text" %>
+        <% if user_signed_in? %>
+          <%= link_to "ホストになる", "/rooms/new", class: "header__host-text" %>
+        <% else %>
+          <div class="modal__open-signin">
+            <div class="header__user" >
+              <div class="header__user-text" style="margin: 4px 0">ホストになる</div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
