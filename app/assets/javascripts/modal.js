@@ -114,9 +114,3 @@ $(function(){
   });
 });
 
-//編集・ログアウトバナー
-$(function(){
-  $('.header__user').click(function(){
-    $('#account-box').toggle();
-  });
-});
