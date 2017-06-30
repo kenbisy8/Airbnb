@@ -1,6 +1,15 @@
+<% if flash[:alert] %>
+  <div class="flash__box" style="background-color: #ff5a5f">
+    <div class="flash__box-messages">
+      <%= flash[:alert] %>
+      <i class="ion-ios-close-empty"></i>
+    </div>
+  </div>
+<% end %>
+
 <div class="details">
   <div class="details__image">
-    <%= image_tag 'inn2.jpg', class: 'details__image-img' %>
+    <%= image_tag "#{@rooms.image}", class: 'details__image-img' %>
   <div class="details__contents">
 
 
@@ -8,21 +17,21 @@
     <div class="details__contents__left">
       <div class="details__contents__left__box">
         <div class="details__contents__left__box-title">
-          <h2>rooms.room_name</h2>
-          <i>rooms.address</i>
+          <h2><%= @rooms.room_name -%></h2>
+          <i><%= @rooms.city -%>, <%= @rooms.prefecture -%>, <%= @rooms.country -%></i>
         </div>
         <div class="details__contents__left__box-room_type">
           <div class="details__contents__left__box-room_type--icon">
             <i class="fa fa-home fa-3x"></i><br>
-            <span>rooms.room_type</span>
+            <span><%= @rooms.room_type -%></span>
           </div>
           <div class="details__contents__left__box-room_type--icon">
             <i class="fa fa-users fa-3x"></i><br>
-            <span>ゲストrooms.guest人</span>
+            <span>ゲスト<%= @rooms.guest -%>人</span>
           </div>
           <div class="details__contents__left__box-room_type--icon">
             <i class="fa fa-bed fa-3x"></i><br>
-            <span>ベッドrooms.guest人</span>
+            <span>ベッド<%= @rooms.bed -%>人</span>
           </div>
         </div>
 
@@ -37,7 +46,7 @@
 
 それは最高のスポットから買い物/チル/食事/飲み物や散歩に至るまでのステップです
 いくつかの地下鉄が近くにあります
-- ディスカウントストア、DonQnilote、コンビニエンスストア、100yenショップ、レストラン、デパート、ビックロ、エレクトロニクスショップはすべて近くにあります
+- ディスカウントストア、ドンキホーテ、コンビニエンスストア、100yenショップ、レストラン、デパート、ビックロ、エレクトロニクスショップはすべて近くにあります
 
 <span>スペース</span>
 
@@ -55,7 +64,7 @@
 
 <span>ゲストとの交流</span>
 
-- 私は日本語、韓国語、少し英語であなたと連絡が取れる。
+- 私は日本語、韓国語、少しの英語であればあなたと連絡が取れます。
 - 私はアパートの近くに住んでいますので、何か問題が発生した場合は、私に電話してください。
 - 詳細な指示は、予約の確認後に提供されます。
 
@@ -66,9 +75,9 @@
         <div class="details__contents__left__box__info">
             <h4 class="details__contents__left__box__info-title">スペース</h4>
             <div class="details__contents__left__box__info-rows">
-              最大定員: room.guest名<br>
-              バスルーム: １<br>
-              ベッド: room.guest台<br>
+              最大定員: <%= @rooms.guest -%>名<br>
+              バスルーム: １箇所<br>
+              ベッド: <%= @rooms.bed -%>台<br>
               チェックイン: 15:00〜<br>
               チェックアウト: 11:00<br>
             </div>
@@ -87,11 +96,11 @@
         </div>
         <div class="details__contents__left__box__host">
           <div class="details__contents__left__box__host-name">
-            ホストは<i>users.nickname</i>さん
+            ホストは<i><%= @rooms.user.name -%></i>さん
           </div>
           <div class="details__contents__left__box__host-text">
             <div class="explanation">
-Hello! I'm users.nickname!
+Hello! I'm <%= @rooms.user.name -%>!
 Thanks for visiting my profile.
 I like cooking and listening to old pop music.
 I speak Korean, Japanese and a little English.
@@ -111,32 +120,43 @@ Happy Airbnb
 
 <!-- right contents -->
     <div class="details__contents__right">
-      <form>
-        <div class="details__contents__right__box">
-          <div class="details__contents__right__box-price">
-            <p>¥ 10000 <span>/1泊</span></p>
-          </div>
-          <div class="details__contents__right__box-check">
-            <div id="check_inout">
-              <p>チェックイン</p>
-              <p>チェックアウト</p>
-              <input type="date" name="check_in">
-              <input type="date" name="check_out">
-            </div>
-          </div>
-          <div class="details__contents__right__box-guest">
-            <p>ゲスト</p>
-            <input type="number" name="guests" step="" placeholder="宿泊人数">
-            <p id="person">名</p>
-          </div>
-          <div class="details__contents__right__box-resv">
-            <input type="submit" value="予約する" id="resv-btn">
-          </div>
-          <div class="details__contents__right__box-text">
-            <p id="no-money"><i>まだ請求は発生いたしません。</i></p>
+      <%= form_for [@rooms, current_user, @order], url: "/rooms/#{@rooms.id}/orders/new", method: :get, html: { class: 'details__contents__right__box' } do |f| %>
+
+        <div class="details__contents__right__box-price">
+          <p>¥ <%= number_with_delimiter(@rooms.price * 1.08.round) -%> <span>/1泊</span></p>
+        </div>
+
+        <div class="details__contents__right__box-check">
+          <div id="check_inout">
+            <%= f.label 'チェックイン' %>
+            <%= f.label 'チェックイン' %>
+            <%= f.date_field :check_in %>
+            <%= f.date_field :check_out %>
           </div>
         </div>
-      </form>
+
+        <div class="details__contents__right__box-guest">
+          <%= f.label 'ゲスト' %><br>
+          <%= f.number_field :persons, placeholder: "宿泊人数" %>
+          <p id="person">名</p>
+        </div>
+
+        <% if user_signed_in? %>
+          <div class="details__contents__right__box-resv">
+            <%= f.submit '予約する', id: 'resv-btn' %>
+          </div>
+        <% else %>
+          <div class="details__contents__right__box-resv">
+            <div class="modal__open-signin", id="resv-btn">
+              予約する
+            </div>
+          </div>
+        <% end %>
+
+        <div class="details__contents__right__box-text">
+          <p id="no-money"><i>まだ請求は発生いたしません。</i></p>
+        </div>
+      <% end %>
     </div>
   </div>
   </div>

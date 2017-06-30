@@ -18,7 +18,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @rooms = Room.find(1)
+    @rooms = Room.find(params[:id])
+    @order = Order.new
   end
 
   private

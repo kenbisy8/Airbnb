@@ -8,7 +8,6 @@
 
   &__contents {
 
-
 // left-contents
 
     &__left {
@@ -36,10 +35,11 @@
         }
 
         &-room_type {
+          width: 100%;
           margin: 20px 30px 110px;
           &--icon {
             float: left;
-            margin-left: 60px;
+            margin-left: 120px;
             text-align: center;
           }
         }
@@ -90,8 +90,6 @@
       }
     }
 
-
-
 // right-contents
 
     &__right {
@@ -132,31 +130,38 @@
         &-check {
           width: 100%;
           #check_inout {
-            width: 315px;
-            height: 23px;
             margin-left: 20px;
-            p {
+            label {
               margin: 10px 50px 10px 0;
               float: left;
             }
             input {
               float: left;
-              width: 118px;
               height: 50px;
               font-size: 11px;
-              padding-left: 14px;
-              padding-right: 2px;
-              margin-bottom: 10px;
+              padding: 0 5px;
+              margin: 0 5px 10px;
+              border: 1px solid #D3D3D3;
+              border-radius: 3px;
+            }
+            input:focus {
+              border: 1px solid #008489;
+              outline: 0;
+            }
+            input[type="date"]::-webkit-outer-spin-button,
+            input[type="date"]::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
             }
           }
         }
 
         &-guest {
           clear: both;
-          margin-left: 20px;
+          margin-left: 25px;
           margin-bottom: 10px;
           float: left;
-          p {
+          label {
             margin-bottom: 10px;
           }
           input {
@@ -164,6 +169,10 @@
             height: 50px;
             padding-left: 20px;
             font-size: 30px;
+          }
+          input:focus {
+            border: 1px solid #008489;
+            outline: 0;
           }
           #person {
             float: right;
@@ -176,6 +185,7 @@
         &-resv {
           margin-left: 20px;
           margin-bottom: 20px;
+          clear: both;
           #resv-btn {
             width: 275px;
             height: 45px;
@@ -186,17 +196,17 @@
             color: #fff;
             text-align: center;
             line-height: 45px;
-
+          }
+          #resv-btn:focus {
+            background-color: red;
           }
         }
       }
-          #no-money {
-             margin-left: 70px;
-             margin-bottom: 10px;
-             font-size: 13px;
-          }
+      #no-money {
+         margin-left: 70px;
+         margin-bottom: 10px;
+         font-size: 13px;
+      }
     }
-
-
   }
 }
