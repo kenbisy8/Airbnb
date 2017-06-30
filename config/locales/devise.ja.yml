@@ -1,6 +1,7 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 # Japanese translation for devise
 
+
 ja:
   activerecord:
     models:
@@ -8,6 +9,18 @@ ja:
     attributes:
       user:
         name: '名前'
+      room:
+        room_name: 'リスティング'
+        country: '国'
+        prefecture: 都道府県
+        city: '市区町村'
+        address: '番地・号'
+        guest: 'ゲスト人数'
+        bed: 'ベッド数'
+        price: '価格'
+        room_type: '部屋のタイプ'
+        image: '写真'
+
   errors:
     messages:
       expired: "有効期限切れです。新規登録してください"
@@ -23,6 +36,11 @@ ja:
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
+      not_a_number: 'には半角数字を入力してください'
+      inclusion: 'が選択されていません'
+      less_than_or_equal_to: 'が多すぎます(99以下に設定してください)'
+      greater_than: 'を1以上に設定してください'
+      less_than: 'が高すぎます'
 
   devise:
     failure:

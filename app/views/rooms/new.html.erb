@@ -1,3 +1,108 @@
-<%= render 'header' -%>
-<%= render 'hosting' -%>
-<%= render 'rooms/footer/footer' -%>
+<div class="hosting">
+  <div class="hosting__contents">
+    <div class="hosting__contents__image">
+      <%= image_tag 'hosting1.jpg', class: "hosting__contents__image--img" %>
+      <div class="hosting__contents__image__box">
+        <div class="hosting__contents__image__box-title">
+          <span>Airbnbのホストであなたの世界が広がる</span>
+        </div>
+        <div class="hosting__contents__image__box-text">
+          <span>旅をしなくても、海外の人々とのふれあいを楽しみながら、生活のゆとりを。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hosting__contents__body">
+      <div class="hosting__contents__body__title">
+        <p>Airbnbで  "ホスト"を始めよう! </p>
+        <h3>たった7つのステップですぐ登録できます</h3>
+      </div>
+
+      <% if @room.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @room.errors.count %>件のエラーがあります。</h2>
+          <ul>
+          <% @room.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for [current_user, @room], url: '/rooms', method: :post, html: { class: 'hosting__contents__body__form', id: 'hosting-reset' } do |f| %>
+
+        <div class="hosting__contents__body__form--name">
+          <div id="hosting-steps">STEP1</div>
+          <%= f.label '物件に名前をつける', class: 'hosting-titles' %>
+          <%= f.text_field :room_name, placeholder: "リスティングのタイトル", class: "hosting-inputs" %>
+        </div>
+
+        <div class="hosting__contents__body__form--address">
+          <div id="hosting-steps">STEP2</div>
+          <%= f.label '居住地はどこですか？', class: 'hosting-titles' %>
+          <h4>国</h4>
+            <%= f.country_select :country, { include_blank: "国を選択してください", priority_countries: ["JP"] }, {class: "hosting-inputs", id: "hosting-country"} %>
+          <h4>都道府県 (ex: Tokyo)</h4>
+            <%= f.text_field :prefecture, placeholder: "例) 東京都", class: "hosting-inputs" %>
+          <h4>市区町村 (ex: Minato-ku)</h4>
+            <%= f.text_field :city, placeholder: "例) 港区", class: "hosting-inputs" %>
+          <h4>番地・号 (ex: 1-1-1 Roppongi) ※ 数字は半角</h4>
+            <%= f.text_field :address, placeholder: "例) 六本木 1-1-1", class: "hosting-inputs" %>
+        </div>
+
+        <div class="hosting__contents__body__form--room_type">
+          <div id="hosting-steps">STEP3</div>
+          <%= f.label '掲載するのはどんなタイプの部屋ですか？', class: 'hosting-titles' %>
+          <label>
+            <%= f.radio_button :room_type, 'まるまる貸切', class: 'room_types-inputs' %><span class="room_types-btn"></span> まるまる貸切
+          </label>
+          <label>
+            <%= f.radio_button :room_type, '個室', class: 'room_types-inputs' %><span class="room_types-btn"></span> 個室
+          </label>
+          <label>
+            <%= f.radio_button :room_type, 'シェアルーム', class: 'room_types-inputs' %><span class="room_types-btn"></span> シェアルーム
+          </label>
+        </div>
+
+        <div class="hosting__contents__body__form--guest">
+          <div id="hosting-steps">STEP4</div>
+          <%= f.label '受け入れ可能なゲストの最大人数', class: 'hosting-titles' %>
+          <div>
+            <%= f.number_field :guest, placeholder: "最大ゲスト人数  (※ 半角数字で記入)", class: "hosting-inputs" %><span>  名</span>
+          </div>
+
+        <div class="hosting__contents__body__form--guest">
+          <div id="hosting-steps">STEP5</div>
+          <%= f.label 'ゲストが使えるベッドの数は？', class: 'hosting-titles' %>
+          <div>
+            <%= f.number_field :bed, placeholder: "最大ベッド数  (※ 半角数字で記入)", class: "hosting-inputs" %><span>  台</span>
+          </div>
+        </div>
+
+        <div class="hosting__contents__body__form--price">
+          <div id="hosting-steps">STEP6</div>
+          <%= f.label '1人/1泊あたりの料金', class: 'hosting-titles' %>
+          <div>
+            <%= f.number_field :price, placeholder: "価格  (※ 半角数字で記入)", class: "hosting-inputs" %><span>  円(税抜)</span>
+          </div>
+        </div>
+
+        <div class="hosting__contents__body__form--image">
+          <div id="hosting-steps">STEP7</div>
+          <%= f.label '写真のアップロード', class: 'hosting-titles' %>
+          <div class="custom-image-btn">
+            写真をアップロード
+            <%= f.file_field :image, class: 'hosting-images' %>
+          </div>
+        </div>
+
+        <div class="hosting__contents__body__form--submit">
+          <%= f.submit '登録完了', id: 'hosting-registration-btn' %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -10,10 +10,15 @@
 
   <body>
   <div id="all-contents">
+    <%= render 'rooms/header' -%>
+
     <%= yield %>
+
     <%= render 'users/sign_up', user: @user %>
     <%= render 'users/sign_in', user: @user %>
+
+    <%= render 'rooms/footer/footer' -%>
   </div>
-    <div id="modal-overlay"></div>
+  <div id="modal-overlay"></div>
   </body>
 </html>
