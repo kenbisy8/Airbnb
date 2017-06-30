@@ -1,68 +1,100 @@
+.flash__box {
+  width: 100%;
+  height: 50px;
+  margin-top: 40px;
+  background-color: $flash-bg;
+  color: #484848;
+  &-messages {
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: -1px;
+  }
+  .ion-ios-close-empty {
+    position: absolute;
+    right: 20px;
+    font-size: 36px;
+  }
+}
+
+.slick-prev:before {
+  color: #484848;
+  content: "\f360";
+  font-family: "Ionicons";
+  font-size: 50px;
+}
+.slick-next:before {
+  color: #484848;
+  content: "\f362";
+  font-family: "Ionicons";
+  font-size: 50px;
+}
+
+
+.slick-next {
+  top: 110px;
+  right: 5px;
+  z-index: 99;
+}
+.slick-prev {
+  top: 110px;
+  left: -25px;
+  z-index: 100;
+}
 
 .inn {
   box-sizing: border-box;
-  width: 1396px;
-  margin: 90px 42px 0;
-  float:left;
-  .inn-text {
+  margin-top: 90px;
+  padding: 0 42px;
+  width: 100%;
+  &-text {
+    width: 100%;
     color: #484848;
     font-size: 28px;
     font-weight: bold;
     letter-spacing: -0.8px;
-    margin: 0 0 20px 8px;
+    margin: 0 8px;
   }
 
   &__container{
     float: left;
-    &__contents {
-      width: 333px;
-      height: 222px;
-      float: left;
-      margin: 0 8px;
-        &__box {
-          width: 100%;
-          height: 100%;
-          box-sizing: border-box;
-          float: left;
-          &-image {
-            width: 333px;
-            height: 222px;
-            &--photo {
-              max-width: 333px;
-              max-height: 222px;
-            }
-          }
+    width: 100%;
+    .wrapper {
+      margin: 8px;
+      width: 100%;
+      a {
+        outline: 0;
+      }
+    }
+    &--image {
+      width: 100%;
+    }
+    &--price {
+      min-width: 20%;
+      @include inn__container--text;
+    }
 
-          &-price {
-            width: 80px;
-            @include inn__contens-text;
-          }
+    &--name {
+      width: 80%;
+      @include inn__container--text;
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
 
-          &-name {
-            width: 253px;
-            @include inn__contens-text;
-            p {
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-          }
-
-          &-info {
-            float: left;
-            .roomType {
-              color: #484848;
-              font-size: 15px;
-              float: left;
-              padding-right: 5px;
-            }
-            .beds {
-              color: #484848;
-              font-size: 15px;
-              float: left;
-            }
-          }
-        }
+    &--info {
+      clear: both;
+      .roomType {
+        color: #484848;
+        font-size: 15px;
+        float: left;
+      }
+      .beds {
+        color: #484848;
+        font-size: 15px;
+      }
     }
   }
 }
