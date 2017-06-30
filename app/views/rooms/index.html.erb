@@ -1,3 +1,60 @@
-<%= render 'header' -%>
-<%= render 'inn', rooms: @rooms -%>
-<%= render 'rooms/footer/footer' -%>
+<% if flash[:notice] %>
+  <div class="flash__box">
+    <div class="flash__box-messages">
+      <%= flash[:notice] %>
+      <i class="ion-ios-close-empty"></i>
+    </div>
+  </div>
+<% end %>
+
+<div class="inn">
+  <h2 class="inn-text">宿泊先</h2>
+  <div class="inn__container">
+    <% @rooms.each do |rooms| %>
+      <div class="wrapper">
+        <a href="/rooms/<%= rooms.id%>" target="_blank">
+          <%= image_tag "#{rooms.image.thumb}", class: 'inn__container--image' %>
+        </a>
+        <div class="inn__container--price">
+          <p>¥ <%= number_with_delimiter(rooms.price * 1.08.round) -%></p>
+        </div>
+        <div class="inn__container--name">
+          <p> <%= rooms.room_name -%></p>
+        </div>
+        <div class="inn__container--info">
+          <p class="roomType"><%= rooms.room_type -%></p>
+          <p class="beds">・ベッド<%= rooms.bed -%>台</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="inn">
+  <h2 class="inn-text">体験</h2>
+  <div class="inn__container">
+    <% @rooms.each do |rooms| %>
+      <div class="wrapper">
+        <a href="/rooms/<%= rooms.id%>" target="_blank">
+          <%= image_tag "#{rooms.image.thumb}", class: 'inn__container--image' %>
+        </a>
+        <div class="inn__container--price">
+          <p>¥ <%= number_with_delimiter(rooms.price * 1.08.round) -%></p>
+        </div><br>
+        <div class="inn__container--name" style="font-weight: 200;">
+          <p> <%= rooms.room_name -%></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--
+  <h2 class="inn-text">体験</h2>
+
+  <h2 class="inn-text">音楽の体験</h2>
+
+  <h2 class="inn-text">ファッションの体験</h2>
+
+  <h2 class="inn-text">エンターテインメントの体験</h2>-->
+
