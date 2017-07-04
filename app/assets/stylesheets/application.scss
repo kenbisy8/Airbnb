@@ -6,10 +6,17 @@
 @import "ionicons";
 @import "font-awesome";
 
-@import "modal";
-@import "user";
 @import "header";
 @import "footer";
+@import "modal";
+
+//user#edit
+@import "user";
+//rooms#index
 @import "index";
+//rooms#show
 @import "details";
+//rooms#new
 @import "hosting";
+//order#new
+@import "order";
