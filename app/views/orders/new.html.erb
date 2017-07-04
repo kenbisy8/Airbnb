@@ -1,0 +1,137 @@
+<div class="order">
+
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <h2><%= flash[:error].count %>件のエラーがあります。</h2>
+      <ul>
+        <% flash[:error].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="wrapper-left">
+  <%= form_for @order, url: room_orders_path, html: { class: "order__form" } do |f| %>
+
+    <h3 class="order__title">1.旅行について</h3>
+      <div class="order__form__persons">
+        <%= f.label '誰と一緒ですか？' %>
+        <%= f.hidden_field :persons %>
+        <p>宿泊人数: <strong><%= @order.persons %></strong>人</p>
+      </div><br>
+
+      <div class="order__form__messages">
+        <%= f.label 'ホストに挨拶して、お越しになる目的をお伝えください。', class: "order__form-label" %><br>
+        <%= f.text_area :messages, class: 'order__form__messages--text' %>
+      </div>
+
+    <h3 class="order__title">2.ハウスルールについて</h3>
+      <%= image_tag 'airbnb.jpg', id: 'house-rules-logo' %>
+      <div class="order__house-rules">
+        <h4 class="order__house-rules__title">
+        <%= @room.user.name %>さんのハウスルール</h4>
+        <div class="order__house-rules__contents">
+          <p class="order__house-rules__contents--text">
+            checkin time: after 3:00 PM<br><br>
+
+            1) TAKE OFF YOUR SHOES and use room slippers when you are in the room.<br>
+
+            2) NO SMOKING INSIDE THE ROOM.<br>
+
+            3) KEEP CLEAN! Please separate to burnable and non-burnable trash. and put back all equipment, sofa or chairs if you moved.<br>
+
+            4) DON'T TAKE ANYTHING FROM THE ROOM. Please take care of the apartment and try to leave it as original.<br>
+
+            5) SWITCH OFF air-conditioner, Room lights and other electric appliances when you go out.<br>
+
+            6) NO PARTY AND NO LOUD MUSIC in the room. Please respect your neighbors.<br>
+            Please enjoy your holiday but have a drinking party outside at the Izakaya, night clubs or bars.<br>
+
+            7) BE QUIET in the apartment building. Please be quiet at the corridor, in the lift and at the entrance of the apartment building.<br>
+
+            8) DO NOT INVITE ANY UNAUTHORIZED FRIENDS inside the apartment. Only booked guests are allowed to stay.<br>
+          </p>
+        </div>
+      </div>
+
+    <h3 class="order__title">3.支払い</h3>
+    <div class="order__payment">
+      <h4 class="order__payment-label">お支払い方法</h4>
+        <input type="radio" checked="checked"> クレジットカード
+      <h4 class="order__payment-label">クレジットカード番号<i> (半角数字・ハイフン不要)</i></h4>
+        <input type="number" placeholder="カード番号を入力してください" class="order__payment-form">
+    </div>
+    <label class="check_policy" >
+      <%= f.check_box :confirmation, class: "check_policy-input" %><span class="check_policy-input-btn"></span>
+       <strong>
+        <i>ハウスルール</i>、<i>キャンセルポリシー</i>、<i>ゲスト返金ポリシー</i>に同意します。<br>表示中のサービス料を含む合計金額を支払うことにも同意します。
+      </strong>
+    </label><br>
+    <%= f.submit '確認して支払う', id: "payment-btn" %>
+    <div class="back-btn">
+      <%= link_to '戻る', :back, id: "back-btn" %>
+    </div>
+  </div>
+
+
+  <div class="wrapper-right">
+    <div class="order__box">
+      <%= image_tag "#{@room.image}", class: 'order__box__image' %>
+      <div class="wrapper-box">
+        <div class="wrapper-underline">
+          <div class="order__box__room">
+            <div class="order__box__room-room_name">
+              <%= @room.room_name -%>
+            </div>
+            <div class="order__box__room-address">
+              <%= @room.city -%>, <%= @room.prefecture -%>, <%= @room.country -%>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper-underline">
+          <div class="order__box__info">
+            <div class="order__box__info-type">
+              <span><%= @room.room_type -%></span> にゲスト <span><%= @order.persons -%></span> 人
+            </div>
+            <div class="order__box__info-date">
+              <%= f.hidden_field :check_in %>
+              <%= f.hidden_field :check_out %>
+              <span><%= @order.check_in -%></span>から
+              <span><%= @order.check_out -%></span>まで
+            </div>
+          </div>
+        </div>
+          <div class="order__box__policy">
+            <div class="order__box__policy--left">
+              キャンセルポリシー<br>
+              ハウスルール<br>
+              泊<br>
+            </div>
+            <div class="order__box__policy--right">
+              <p>厳格</p>
+              <p>ポリシーを読む</p>
+              <%= @dif -%>泊<br>
+            </div>
+          </div>
+        <div class="wrapper-underline">
+          <div class="order__box__price">
+            <div class="order__box__price-price">
+              ¥ <%= number_with_delimiter(@price) -%> × ゲスト<%= @order.persons -%>人 × <%= @dif -%>泊<br>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper-underline">
+          <div class="order__box__sum">
+            <div class="order__box__price-sum">
+              <p>合計</p>
+              <%= f.hidden_field :all_price, value: @prices %>
+              <strong>¥ <%= number_with_delimiter(@prices) -%></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

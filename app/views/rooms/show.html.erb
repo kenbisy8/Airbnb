@@ -137,7 +137,7 @@ Happy Airbnb
 
         <div class="details__contents__right__box-guest">
           <%= f.label 'ゲスト' %><br>
-          <%= f.number_field :persons, placeholder: "宿泊人数" %>
+          <%= f.number_field :persons, placeholder: "宿泊人数", min: 1 %>
           <p id="person">名</p>
         </div>
 
@@ -154,7 +154,7 @@ Happy Airbnb
         <% end %>
 
         <div class="details__contents__right__box-text">
-          <p id="no-money"><i>まだ請求は発生いたしません。</i></p>
+          <p id="no-money">まだ請求は発生しません。</p>
         </div>
       <% end %>
     </div>

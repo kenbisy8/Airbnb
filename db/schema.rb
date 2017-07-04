@@ -10,31 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628092631) do
+ActiveRecord::Schema.define(version: 20170703102646) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "persons"
     t.integer  "all_price"
-    t.string   "check_in"
-    t.string   "check_out"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "messages",     limit: 65535, null: false
+    t.boolean  "confirmation",               null: false
+    t.integer  "user_id",                    null: false
+    t.integer  "room_id",                    null: false
+    t.date     "check_in",                   null: false
+    t.date     "check_out",                  null: false
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "room_name",  null: false
-    t.integer  "guest",      null: false
-    t.integer  "price",      null: false
-    t.string   "room_type",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "country",    null: false
-    t.string   "prefecture", null: false
-    t.string   "city",       null: false
-    t.string   "address",    null: false
-    t.integer  "user_id",    null: false
-    t.integer  "bed",        null: false
-    t.string   "image",      null: false
+    t.string   "room_name",               null: false
+    t.integer  "guest",                   null: false
+    t.integer  "price",                   null: false
+    t.string   "room_type",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "country",                 null: false
+    t.string   "prefecture",              null: false
+    t.string   "city",                    null: false
+    t.string   "address",                 null: false
+    t.integer  "user_id",                 null: false
+    t.integer  "bed",                     null: false
+    t.string   "image",      default: ""
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -183,29 +183,29 @@
         }
 
         &-resv {
-          margin-left: 20px;
-          margin-bottom: 20px;
+          margin: 20px 20px;
           clear: both;
           #resv-btn {
             width: 275px;
             height: 45px;
-            border: 1px solid #ff5a5f;
-            border-radius: 5px;
-            background-color: #ff5a5f;
             font-size: 20px;
             color: #fff;
             text-align: center;
             line-height: 45px;
+            border: 1px solid #ff5a5f;
+            border-radius: 5px;
+            background-color: #ff5a5f;
           }
           #resv-btn:focus {
             background-color: red;
+            outline: 0;
           }
         }
       }
       #no-money {
-         margin-left: 70px;
-         margin-bottom: 10px;
-         font-size: 13px;
+        width: 100%;
+        font-size: 13px;
+        text-align: center;
       }
     }
   }
