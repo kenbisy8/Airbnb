@@ -1,0 +1,235 @@
+//left-contents
+.order {
+  margin: 80px 40px;
+  font-size: 16px;
+  color: #484848;
+  letter-spacing: -1px;
+  box-sizing: border-box;
+  .wrapper-left {
+    float: left;
+    width: 60%;
+  }
+  &__title {
+    margin-top: 20px;
+    margin-left: -5px;
+    font-size: 40px;
+  }
+
+  &__form {
+    margin-left: 20px;
+    font-size: 24px;
+
+    &__persons {
+      strong {
+        padding: 0 10px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ff5a5f;
+      }
+    }
+    &__messages {
+      &--text {
+        resize: none;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0 5px 200px;
+      }
+      &--text:focus {
+        border: 2px solid #008489;
+        outline: 0;
+      }
+    }
+  }
+
+  #house-rules-logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    position: absolute;
+    left: 60px;
+  }
+
+  &__house-rules {
+    margin: 20px 0 40px;
+    padding: 30px;
+    background-color: #edefed;
+    &__title {
+      padding: 15px 0 20px;
+      font-size: 28px;
+      text-align: center;
+    }
+    &__contents {
+      &--text {
+        text-align: left;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__payment {
+    &-label {
+      margin: 20px -5px;
+      font-size: 32px;
+    }
+    i {
+      font-size: 15px;
+    }
+    &-form {
+      width: 60%;
+      padding: 10px;
+      font-size: 18px;
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &-form:focus {
+      border: 2px solid #008489;
+      outline: 0;
+    }
+  }
+
+  .check_policy {
+    display: block;
+    margin-top: 20px;
+    strong {
+      font-size: 16px;
+    }
+    i {
+      color: #008489;
+      cursor: pointer;
+    }
+    &-input {
+      display: none;
+    }
+    &-input + .check_policy-input-btn:before {
+      content: "\f372";
+      font-family: "Ionicons";
+      color: #D3D3D3;
+      font-size: 22px;
+    }
+    &-input:checked + .check_policy-input-btn:before {
+      content: "\f373";
+      color: #008489;
+    }
+  }
+
+  #payment-btn {
+    margin-top: 80px;
+    padding: 10px 50px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #ff5a5f;
+    border-radius: 5px;
+    background-color: #ff5a5f;
+  }
+  #payment-btn:focus {
+    background-color: red;
+    outline: 0;
+  }
+
+  .back-btn {
+    margin-top: 80px;
+  }
+
+  #back-btn {
+    padding: 10px 50px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #ff5a5f;
+    border-radius: 5px;
+    background-color: #ff5a5f;
+    text-decoration: none;
+  }
+  #back-btn:focus {
+    background-color: red;
+    outline: 0;
+  }
+
+//right-contents
+  .wrapper-right {
+    float: right;
+    width: 32%;
+    margin: 28px 20px
+  }
+  .wrapper-box {
+    padding: 15px;
+  }
+  .wrapper-underline {
+    border-bottom: 1px solid #D3D3D3;
+  }
+
+  &__box {
+    width: 100%;
+    border: 1px solid #D3D3D3;
+    &__image {
+      width: 100%;
+      height: 10%;
+    }
+    &__room {
+      padding-bottom: 10px;
+      &-room_name {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &-address {
+        letter-spacing: -0.8px;
+      }
+    }
+    &__info {
+      padding: 10px 0;
+      &-type {
+        padding-bottom: 10px;
+        span {
+          font-weight: bold;
+        }
+      }
+      &-date {
+        span {
+          font-weight: bold;
+          letter-spacing: -0.8px;
+        }
+      }
+    }
+    &__policy {
+      padding-top: 10px;
+      &--left {
+        float: left;
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      &--right {
+        float: right;
+        padding-right: 10px;
+        p {
+          color: #ff5a5f;
+          cursor: pointer;
+        }
+      }
+    }
+    &__price {
+      clear: both;
+      padding: 10px 0;
+      border-top: 1px solid #D3D3D3;
+    }
+    &__sum {
+      padding: 10px 0;
+      p {
+        float: left;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      strong {
+        display: block;
+        font-size: 24px;
+        text-align: right;
+      }
+    }
+  }
+}
+
