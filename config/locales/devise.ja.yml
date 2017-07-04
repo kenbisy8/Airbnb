@@ -20,6 +20,10 @@ ja:
         price: '価格'
         room_type: '部屋のタイプ'
         image: '写真'
+      order:
+        messages: 'ホストへの挨拶'
+        confirmation: 'ポリシー'
+
 
   errors:
     messages:
@@ -31,16 +35,17 @@ ja:
         one: "エラーにより、この %{resource} を保存できません："
         other: "%{count} 個のエラーにより、この %{resource} を保存できません："
       taken: "は既に使用されています。"
-      blank: "が入力されていません。"
+      blank: "が入力されていません"
       too_short: "は%{count}文字以上に設定して下さい。"
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
-      confirmation: "が内容とあっていません。"
+      confirmation: "が内容とあっていません"
       not_a_number: 'には半角数字を入力してください'
       inclusion: 'が選択されていません'
       less_than_or_equal_to: 'が多すぎます(99以下に設定してください)'
       greater_than: 'を1以上に設定してください'
       less_than: 'が高すぎます'
+      accepted: 'への同意が確認されていません'
 
   devise:
     failure:
