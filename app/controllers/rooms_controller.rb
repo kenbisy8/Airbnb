@@ -20,6 +20,7 @@ class RoomsController < ApplicationController
   def show
     @rooms = Room.find(params[:id])
     @order = Order.new
+    country_name(@rooms.country)
   end
 
   private

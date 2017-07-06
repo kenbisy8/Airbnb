@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
       get_date_dif(@order)
       get_price(@room)
       get_all_price(@order)
+      country_name(@room.country)
     end
   end
 

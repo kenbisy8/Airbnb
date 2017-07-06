@@ -386,6 +386,7 @@ DEPENDENCIES
   capistrano3-unicorn
   carrierwave
   coffee-rails (~> 4.2)
+  countries
   country_select
   devise
   devise-i18n-views
