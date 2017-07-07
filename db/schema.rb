@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703102646) do
+ActiveRecord::Schema.define(version: 20170706114849) do
+
+  create_table "diaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "article",         limit: 65535, null: false
+    t.string   "nation_name",                   null: false
+    t.string   "city_name",                     null: false
+    t.string   "article_image"
+    t.boolean  "public",                        null: false
+    t.integer  "article_user_id",               null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "persons"
