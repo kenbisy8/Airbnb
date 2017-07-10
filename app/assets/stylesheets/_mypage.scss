@@ -1,0 +1,194 @@
+.mypage {
+  margin: 80px 80px 0;
+  box-sizing: border-box;
+//left-contents
+  &__left-contents {
+    float: left;
+    width: 25%;
+  }
+
+  &__icon {
+    &-image {
+      width: 240px;
+      height: 240px;
+      padding: 10px 0;
+      box-sizing: border-box;
+      border: 0.5px solid #D3D3D3;
+    }
+  }
+
+  &__certification {
+    width: 240px;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #484848;
+    border: 1px solid #D3D3D3;
+    &__bar {
+      background-color: #edefed;
+      &-title {
+        padding: 10px 20px;
+      }
+    }
+    &__box {
+      margin: 20px;
+      font-size: 14px;
+      li {
+        line-height: 2;
+        margin: 15px 0;
+        .ion-ios-checkmark-outline {
+          float: right;
+          line-height: 1;
+          font-family: ionicons;
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+
+//right-contents
+  &__right-contents {
+    width: 70%;
+    float: right;
+  }
+
+  &__info {
+    letter-spacing: 0.5px;
+    color: #484848;
+    h2 {
+      font-size: 44px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &-flag {
+      margin-top: 10px;
+      font-size: 14px;
+      &-text {
+        text-decoration: none;
+        color: #484848;
+        line-height: 2.5;
+      }
+      &-text:hover {
+        border-bottom: 1px solid #484848;
+      }
+    }
+    .ion-ios-flag-outline {
+      float: left;
+      margin-right: 5px;
+      font-family: ionicons;
+      font-size: 28px;
+    }
+    &-profile {
+      text-decoration: none;
+      font-size: 14px;
+      color: #008489;
+    }
+    &-profile:hover {
+      border-bottom: 1px solid #008489;
+    }
+  }
+
+  .diary-header {
+    margin-top: 30px;
+    font-size: 36px;
+    span {
+      font-size: 14px;
+    }
+  }
+
+  &__diary {
+    margin: 30px 0;
+    color: #484848;
+
+    &__box {
+      padding: 30px 0 40px;
+      border-top: 1px solid #D3D3D3;
+      &-image {
+        float: left;
+      }
+      .diary-images {
+        width: 100px;
+        height: 100px;
+      }
+
+      &__article {
+        &-title {
+          float: left;
+          width: 80%;
+          margin-left: 10px;
+          font-size: 24px;
+          letter-spacing: -1px;
+          #diary-title {
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+        &-info {
+          float: left;
+          #diary-location {
+            font-size: 16px;
+            .fa-map-marker {
+              margin: 0 5px;
+              font-size: 28px;
+              color: #008489;
+            }
+            strong {
+              // font-weight: bold;
+            }
+            #diary-date {
+              margin-left: 5px;
+              line-height: 1;
+              font-size: 16px;
+              color: #D3D3D3;
+            }
+            .ion-ios-locked-outline {
+              margin-left: 10px;
+              font-size: 28px;
+              color: #484848;
+            }
+            .fa-users {
+              margin: 5px 10px 0;
+              font-size: 26px;
+              color: #484848;
+            }
+          }
+        }
+        &-text {
+          clear: both;
+          border-bottom: 1px solid #D3D3D3;
+          #diary-text {
+            width: 100%;
+            overflow: hidden;
+            word-break: normal;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+          }
+          &-next {
+            display: block;
+            margin: 10px 0;
+            color: #008489;
+            text-align: right;
+            text-decoration: none;
+            span:hover {
+              border-bottom: 1px solid #008489;
+            }
+          }
+          #diary-edit {
+            float: right;
+            margin: 10px 10px;
+          }
+          #diary-edit:hover {
+            border-bottom: 1px solid #008489;
+          }
+        }
+      }
+    }
+  }
+}
