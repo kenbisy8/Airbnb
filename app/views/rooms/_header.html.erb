@@ -20,10 +20,17 @@
           <div class="header__user__box" id="account-box">
             <ul>
               <li class="header__user__box-li">
-              <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'header__user__box-tag' %>
+                <%= link_to 'アカウント設定', user_path(current_user), class: 'header__user__box-tag' %>
               </li>
               <li class="header__user__box-li">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header__user__box-tag' %></li>
+                <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'header__user__box-tag' %>
+              </li>
+              <li class="header__user__box-li">
+                <%= link_to '日記登録', new_diary_path, class: 'header__user__box-tag' %>
+              </li>
+              <li class="header__user__box-li">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header__user__box-tag' %>
+              </li>
             </ul>
           </div>
         </div>
@@ -43,10 +50,15 @@
       <div class="header__host">
         <% if user_signed_in? %>
           <%= link_to "ホストになる", "/rooms/new", class: "header__host-text" %>
+          <div class="header__host-text" id="header__diary">日記検索
+            <div class="diary__box">
+              <input type="text" class="diary__box__search", placeholder="行きたい国・都市名を入力してください">
+            </div>
+          </div>
         <% else %>
           <div class="modal__open-signin">
             <div class="header__user" >
-              <div class="header__user-text" style="margin: 4px 0">ホストになる</div>
+              <div class="header__user-text" style="margin: 4px 20px">ホストになる</div>
             </div>
           </div>
         <% end %>

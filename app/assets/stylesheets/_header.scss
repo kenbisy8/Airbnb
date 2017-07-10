@@ -83,11 +83,10 @@
         &__box {
           display: none;
           width: 250px;
-          height: 110px;
           color: #484848;
           font-size: 14px;
           line-height: 50px;
-          padding: 3px 16px 0;
+          padding: 3px 16px 3px;
           position: absolute;
           top: 80px;
           right: 0;
@@ -107,15 +106,41 @@
         }
       }
 
+      .diary__box {
+        display: none;
+        position: absolute;
+        width: 200px;
+        top: 80px;
+        right: 180px;
+        font-size: 16px;
+        border: 1px solid #D3D3D3;
+        background-color: #fff;
+        &__search {
+          display: block;
+          width: 150px;
+          margin: 20px auto;
+          padding: 10px;
+          font-size: 14px;
+          letter-spacing: -1px;
+          border: 1px solid #D3D3D3;
+          border-radius: 4px;
+        }
+        &__search:focus {
+          border: 1px solid #008489;
+          outline: 0;
+        }
+      }
       &__host {
         float: right;
         margin-top: 10px;
-        margin-right: 25px;
         &-text {
+          float: right;
           text-decoration: none;
+          margin-right: 25px;
           padding-bottom: 10px;
           font-size: 13px;
           color: #484848;
+          cursor: pointer;
         }
         &-text:hover {
           border-bottom:2px solid #484848;
