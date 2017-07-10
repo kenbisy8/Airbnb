@@ -1,8 +1,31 @@
 $(function(){
 
 //ユーザー編集・ログアウトバナー
+  var $account_box = $('#account-box')
+  $(document).on('click', function(e) {
+    if(!$(e.target).closest('.header__user').length){
+      $account_box.hide();
+    }
+  });
   $('.header__user').click(function(){
-    $('#account-box').toggle();
+    $account_box.show();
+  });
+
+//日記検索バナー
+  var $header__diary = $('#header__diary')
+  var $diary__box = $('.diary__box')
+  var $diary__box__search = $('.diary__box__search')
+  $(document).on('click', function(e) {
+    if(!$(e.target).closest($header__diary).length){
+      $diary__box.animate({width:"200"});
+      $diary__box__search.animate({width:"150"})
+      $diary__box.hide();
+    };
+  });
+  $header__diary.click(function(){
+    $diary__box.show();
+    $diary__box.animate({width:"400px"}, 300)
+    $diary__box__search.animate({width:"300"}, 300)
   });
 
 //flashメッセージ削除
@@ -49,7 +72,6 @@ $(function(){
         'position':'absolute',
         'top': top + 150
       });
-    }
+    };
   });
-
 });

@@ -14,10 +14,11 @@ ActiveRecord::Schema.define(version: 20170706114849) do
 
   create_table "diaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "article",         limit: 65535, null: false
+    t.string   "article_title",                 null: false
+    t.string   "article_image"
     t.string   "nation_name",                   null: false
     t.string   "city_name",                     null: false
-    t.string   "article_image"
-    t.boolean  "public",                        null: false
+    t.boolean  "publicity",                     null: false
     t.integer  "article_user_id",               null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

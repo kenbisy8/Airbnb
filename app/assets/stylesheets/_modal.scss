@@ -1,6 +1,6 @@
 #modal__contents{
   &-signup{
-    z-index: 4;
+    z-index: 1100;
     display: none;
     position: fixed;
     width: 570px;
@@ -10,7 +10,7 @@
   }
 
   &-signin{
-    z-index: 4;
+    z-index: 1100;
     display: none;
     position: fixed;
     width: 570px;
@@ -124,7 +124,7 @@
 }
 
 #modal-overlay {
-  z-index: 3;
+  z-index: 1000;
   display: none;
   position: fixed;
   top: 0;
