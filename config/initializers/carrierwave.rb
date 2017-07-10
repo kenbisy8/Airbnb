@@ -11,9 +11,6 @@ CarrierWave.configure do |config|
     region: 'us-east-2'
   }
 
-  case Rails.env
-  when 'production'
-  config.fog_directory  = 'airbnb-demo'
-  config.asset_host = 'https://s3.us-east-2.amazonaws.com/airbnb-demo'
-  end
+  config.fog_directory  = 'airbnb-practice'
+  config.asset_host = 'https://s3.us-east-2.amazonaws.com/airbnb-practice'
 end
