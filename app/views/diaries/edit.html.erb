@@ -11,6 +11,6 @@
   <% end %>
 
   <%= form_for @diaries, url: diary_path, method: :patch do |f|%>
-    <%= render "diary_registration", f: f %>
+    <%= render "/diaries/diary_registration", f: f %>
   <% end %>
 </div>
