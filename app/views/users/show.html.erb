@@ -34,55 +34,23 @@
   </div>
   <div class="mypage__right-contents">
     <div class="mypage__info">
-      <h2>こんにちは、<%= current_user.name -%>です！</h2>
-      <h3>Tokyo, Japan・<%= current_user.created_at.year -%>年<%= current_user.created_at.month -%>月からメンバー</h3>
+      <h2>こんにちは、<%= @user.name -%>です！</h2>
+      <h3>Tokyo, Japan・<%= @user.created_at.year -%>年<%= @user.created_at.month -%>月からメンバー</h3>
       <div class="mypage__info-flag">
         <i class="ion-ios-flag-outline"></i>
         <a href="" class="mypage__info-flag-text">このユーザーを報告</a>
       </div>
-      <% if current_user.id == params[:id].to_i -%>
+      <% if current_user.id == @user.id -%>
         <div>
-          <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: 'mypage__info-profile' %>
+          <%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'mypage__info-profile' %>
         </div>
       <% end %>
     </div>
 
-    <div class="diary-header">日記<span>(@diary.count)</span></div>
-
-    <div class="mypage__diary">
-      <div class="mypage__diary__box">
-        <div class="mypage__diary__box-image">
-          <%= image_tag 'inn1.jpg', class: 'diary-images' -%>
-        </div>
-        <div class="mypage__diary__box__article">
-          <div class="mypage__diary__box__article-title">
-            <div id="diary-title">(@diary.article_title)</div>
-            <div class="mypage__diary__box__article-info">
-              <div id="diary-location">
-                <i class="fa fa-map-marker"></i>
-                <strong>@diary.city_name, @diary.nation_name </strong>
-                <div id="diary-date">2017年7月22日
-                  <!-- <i class="ion-ios-locked-outline"></i> -->
-                  <i class="fa fa-users"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mypage__diary__box__article-text">
-            <p id="diary-text">
-あああああああああああああああああああああああああああああああああああああああああああああああ
-ああああああああああああああああああああああああああああああ
-あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-            </p>
-            <a href="" class="mypage__diary__box__article-text-next">
-              <span>続きを読む</span>
-            </a>
-            <a href="" class="mypage__diary__box__article-text-next">
-              <div id="diary-edit">この日記を編集する</div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% if current_user.id == @user.id -%>
+      <%= render "diaries/diary_list", diaries: @diaries %>
+    <% else %>
+      <%= render "diaries/diary_list", diaries: @public_diaries %>
+    <% end %>
   </div>
 </div>

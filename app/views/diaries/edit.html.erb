@@ -1,0 +1,16 @@
+<div class="newdiary">
+  <% if @diaries.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @diaries.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @diaries.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @diaries, url: diary_path, method: :patch do |f|%>
+    <%= render "diary_registration", f: f %>
+  <% end %>
+</div>

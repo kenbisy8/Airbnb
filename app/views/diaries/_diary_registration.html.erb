@@ -1,0 +1,35 @@
+<div class="newdiary__left-wrapper">
+  <div class="newdiary__image">
+    <%= image_tag "noimage.png", id: 'image_preview' %><br>
+    <label id="diary-photo">
+      旅の写真をアップロード
+      <%= f.file_field :article_image, id: 'diary-photo-btn' %>
+    </label>
+  </div>
+</div>
+
+<div class="newdiary__right-wrapper">
+  <div class="newdiary__nation">
+    <%= f.label :nation_name, "旅をした国名", class: "newdiary-labels" %><br>
+      <%= f.country_select :nation_name, { include_blank: "国を選択してください" }, class: "newdiary__nation-form" %>
+  </div>
+  <div class="newdiary__city">
+    <%= f.label :city_name, "旅をした都市や町", class: "newdiary-labels" %><br>
+      <%= f.text_field :city_name, placeholder: "ex) Washington DC", class: "newdiary__city-form" %>
+  </div>
+  <div class="newdiary__article_title">
+    <%= f.label :article_title, "タイトル", class: "newdiary-labels" %><br>
+      <%= f.text_field :article_title, placeholder: "ex) My first great JOURNEY" , class: "newdiary__article_title-form" %>
+  </div>
+  <div class="newdiary__article">
+    <%= f.label :article, "本文", class: "newdiary-labels" %><br>
+      <%= f.text_area :article, placeholder: "ex) Hi! This is my first diary at Airbnb diary!" , class: "newdiary__article-form" %>
+  </div>
+  <label class="newdiary__publicity" ><br>
+    <%= f.check_box :publicity, class: "newdiary__publicity--input" %>
+    <span class="diary-publicity-btn"></span><strong>非公開にする</strong><br>
+  </label>
+  <div class="newdiary__submit"><br>
+    <%= f.submit "旅の思い出を残す", id: "diary-submit-btn" %>
+  </div>
+</div>

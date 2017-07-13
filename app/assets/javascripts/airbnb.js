@@ -74,4 +74,19 @@ $(function(){
       });
     };
   });
+
+//diary preview表示
+  $("#diary-photo-btn").change(function(){
+    var preview = document.querySelector('#image_preview');
+    var file    = document.querySelector('#diary-photo-btn').files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+      preview.src = reader.result;
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    };
+  });
 });
