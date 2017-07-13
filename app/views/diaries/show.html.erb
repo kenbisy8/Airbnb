@@ -1,0 +1,33 @@
+<div class="showdiary">
+  <div class="showdiary__left-wrapper">
+    <div class="showdiary__image">
+      <% if @diaries.article_image.present? %>
+        <%= image_tag "#{@diaries.article_image}", class: 'showdiary__image--size' -%>
+      <% else %>
+        <%= image_tag 'noimage.png', class: 'showdiary__image--size' -%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="showdiary__right-wrapper">
+    <div class="showdiary__article_title">
+      <%= @diaries.article_title %>
+    </div>
+    <div class="showdiary__date">
+      <i><%= @diaries.created_at.year -%>年<%= @diaries.created_at.month -%>月 </i>
+    </div>
+    <div class="showdiary__location">
+      <i class="fa fa-map-marker"></i>
+      <%= ISO3166::Country[@diaries.nation_name].emoji_flag %>
+      <%= ISO3166::Country[@diaries.nation_name] %>,
+      <%= @diaries.city_name %>
+    </div>
+    <% if @diaries.article_user_id == current_user.id %>
+      <%= link_to "この日記を編集する", edit_diary_path(@diaries), class: "showdiary__edit" %>
+    <% end %>
+    <div class="showdiary__article">
+<%= @diaries.article %>
+    </div>
+  </div>
+</div>
+
