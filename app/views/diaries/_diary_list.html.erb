@@ -1,43 +1,49 @@
 <div class="diary-header">日記
   <span> (<%= diaries.count -%>)</span>
 </div>
-<% diaries.each do |diary| %>
-  <div class="mypage__diary">
-    <div class="mypage__diary__box">
-      <div class="mypage__diary__box-image">
-        <% if diary.article_image.present? %>
-          <%= image_tag "#{diary.article_image.thumb}", class: 'diary-images' -%>
-        <% else %>
-          <%= image_tag 'noimage.png', class: 'diary-images', id: 'diary-no-images' -%>
-        <% end %>
-      </div>
-      <div class="mypage__diary__box__article">
-        <div class="mypage__diary__box__article-title">
-          <div id="diary-title"><%= diary.article_title -%></div>
-          <div class="mypage__diary__box__article-info">
-            <div id="diary-location">
-              <i class="fa fa-map-marker"></i>
-              <strong><%= diary.city_name -%>, <%= ISO3166::Country[diary.nation_name] -%></strong>
-              <div id="diary-date"><%= diary.created_at.year -%>年<%= diary.created_at.month -%>月
-                <% if diary.publicity %>
-                  <i class="ion-ios-locked-outline"></i>
-                <% else %>
-                  <i class="fa fa-users"></i>
-                <% end %>
+<% if diaries.present? %>
+  <% diaries.each do |diary| %>
+    <div class="mypage__diary">
+      <div class="mypage__diary__box">
+        <div class="mypage__diary__box-image">
+          <% if diary.article_image.present? %>
+            <%= image_tag "#{diary.article_image.thumb}", class: 'diary-images' -%>
+          <% else %>
+            <%= image_tag 'noimage.png', class: 'diary-images', id: 'diary-no-images' -%>
+          <% end %>
+        </div>
+        <div class="mypage__diary__box__article">
+          <div class="mypage__diary__box__article-title">
+            <div id="diary-title"><%= diary.article_title -%></div>
+            <div class="mypage__diary__box__article-info">
+              <div id="diary-location">
+                <i class="fa fa-map-marker"></i>
+                <strong><%= diary.city_name -%>, <%= ISO3166::Country[diary.nation_name] -%></strong>
+                <div id="diary-date"><%= diary.created_at.year -%>年<%= diary.created_at.month -%>月
+                  <% if diary.publicity %>
+                    <i class="ion-ios-locked-outline"></i>
+                  <% else %>
+                    <i class="fa fa-users"></i>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mypage__diary__box__article-text">
-          <p id="diary-text"><%= diary.article -%></p>
-          <a href="/diaries/<%= diary.id %>" class="mypage__diary__box__article-text-next">
-            <span>続きを読む</span>
-          </a>
-          <% if diary.article_user_id == current_user.id %>
-            <%= link_to "この日記を編集する", edit_diary_path(diary), class: "mypage__diary__box__article-text-next", id: "diary-edit" %>
-          <% end %>
+          <div class="mypage__diary__box__article-text">
+            <p id="diary-text"><%= diary.article -%></p>
+            <a href="/diaries/<%= diary.id %>" class="mypage__diary__box__article-text-next">
+              <span>続きを読む</span>
+            </a>
+            <% if diary.article_user_id == current_user.id %>
+              <%= link_to "この日記を編集する", edit_diary_path(diary), class: "mypage__diary__box__article-text-next", id: "diary-edit" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
+  <% end %>
+<% else %>
+  <div class="diary-header-message">
+    まだ投稿がありません
   </div>
 <% end %>
