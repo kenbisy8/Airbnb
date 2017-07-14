@@ -18,7 +18,7 @@
             <div class="mypage__diary__box__article-info">
               <div id="diary-location">
                 <i class="fa fa-map-marker"></i>
-                <strong><%= diary.city_name -%>, <%= ISO3166::Country[diary.nation_name] -%></strong>
+                <strong><%= diary.city_name -%>, <%= diary.nation_name -%></strong>
                 <div id="diary-date"><%= diary.created_at.year -%>年<%= diary.created_at.month -%>月
                   <% if diary.publicity %>
                     <i class="ion-ios-locked-outline"></i>
