@@ -11,6 +11,7 @@ $(function(){
     $account_box.show();
   });
 
+
 //日記検索バナー
   var $header__diary = $('#header__diary')
   var $diary__box = $('.diary__box')
@@ -20,6 +21,8 @@ $(function(){
       $diary__box.animate({width:"200"});
       $diary__box__search.animate({width:"150"})
       $diary__box.hide();
+      $('.header__diary__search').remove();
+      $('.diary__box__search').val("");
     };
   });
   $header__diary.click(function(){
@@ -27,6 +30,51 @@ $(function(){
     $diary__box.animate({width:"400px"}, 300)
     $diary__box__search.animate({width:"300"}, 300)
   });
+
+
+//日記検索インクリメンタルサーチ
+  function searchDiary() {
+    var $incremental = $('#incremental-search-wrapper')
+    var $incrementalResult = $('.header__diary__search')
+    var resultNone = '<div id="incremental-no-result">一致するものがありません'
+    var input = $('.diary__box__search').val();
+
+    function insertHTML(data){
+      var link = '<a href="/diaries/' + data.id + '" class="header__diary__search">'
+      var search = '<div class="header__diary__search'
+      var nation_city = $(search + '--location">').append(data.city_name + ", " + data.nation_name);
+      var title = $(search + '--title">').append(data.article_title);
+
+      var result = $(link).append(nation_city, title);
+      return result
+    };
+
+    $.ajax({
+      type: "GET",
+      data: ('q=' + input),
+      dataType: "json",
+      url: "/diaries"
+    })
+
+    .done(function(data){
+      $incrementalResult.remove();
+      $('#incremental-no-result').remove();
+      if (data.length > 0) {
+        for (var i = 0; i < data.length; i++){
+          var result = insertHTML(data[i])
+          $incremental.append(result);
+        };
+      } else {
+        $incremental.append(resultNone);
+      };
+    })
+    .fail(function(data){
+      alert("error");
+    });
+  };
+
+  $header__diary.on('keyup', searchDiary);
+
 
 //flashメッセージ削除
   $('.ion-ios-close-empty').click(function(){
