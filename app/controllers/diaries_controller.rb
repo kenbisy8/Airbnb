@@ -1,7 +1,12 @@
 class DiariesController < ApplicationController
-  before_action :find_diary, except: [:new, :create]
+  before_action :find_diary, except: [:index, :new, :create]
 
   def index
+    respond_to do |format|
+      format.html
+      format.json {
+        @all_diaries = Diary.search(params[:q])}
+    end
   end
 
   def new
@@ -9,6 +14,7 @@ class DiariesController < ApplicationController
   end
 
   def create
+    get_country_fullName
     @diary = Diary.new(diary_params)
     if @diary.save
       redirect_to "/users/#{current_user.id}", notice: "日記の登録が完了しました"
@@ -37,6 +43,10 @@ class DiariesController < ApplicationController
   end
 
   private
+
+  def get_country_fullName
+    params[:diary][:nation_name] = ISO3166::Country[(params[:diary][:nation_name])].name
+  end
 
   def find_diary
     @diaries = Diary.find(params[:id])

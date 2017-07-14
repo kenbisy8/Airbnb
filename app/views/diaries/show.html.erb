@@ -18,9 +18,8 @@
     </div>
     <div class="showdiary__location">
       <i class="fa fa-map-marker"></i>
-      <%= ISO3166::Country[@diaries.nation_name].emoji_flag %>
-      <%= ISO3166::Country[@diaries.nation_name] %>,
-      <%= @diaries.city_name %>
+      <%= @diaries.city_name %>,
+      <%= @diaries.nation_name %>
     </div>
     <% if @diaries.article_user_id == current_user.id %>
       <%= link_to "この日記を編集する", edit_diary_path(@diaries), class: "showdiary__edit" %>

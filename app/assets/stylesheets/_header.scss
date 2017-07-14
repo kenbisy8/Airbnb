@@ -106,6 +106,7 @@
         }
       }
 
+//diary incremental search
       .diary__box {
         display: none;
         position: absolute;
@@ -115,6 +116,7 @@
         font-size: 16px;
         border: 1px solid #D3D3D3;
         background-color: #fff;
+        box-sizing: border-box;
         &__search {
           display: block;
           width: 150px;
@@ -130,6 +132,38 @@
           outline: 0;
         }
       }
+      &__diary__search {
+        display: block;
+        padding: 10px 0;
+        font-size: 14px;
+        color: #484848;
+        text-decoration: none;
+        &--location {
+          margin: 0 20px;
+          font-weight: bold;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -o-text-overflow: ellipsis;
+        }
+        &--title {
+          margin: 0 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -o-text-overflow: ellipsis;
+        }
+      }
+      &__diary__search:hover {
+        background-color: rgba(0,132,137,0.3)
+      }
+      #incremental-no-result {
+        margin: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+
       &__host {
         float: right;
         margin-top: 10px;

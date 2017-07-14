@@ -1,3 +1,12 @@
+<% if flash[:notice] %>
+  <div class="flash__box">
+    <div class="flash__box-messages">
+      <%= flash[:notice] %>
+      <i class="ion-ios-close-empty"></i>
+    </div>
+  </div>
+<% end %>
+
 <div class="mypage">
   <div class="mypage__left-contents">
     <div class="mypage__icon">
